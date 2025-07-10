@@ -9,10 +9,10 @@ package com.prueba_1.dao;
  *
  * @author XPC
  */
-import com.prueba_1.domain.Revision;
+
+import com.prueba_1.domain.Categoria;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-
-public interface RevisionDao extends JpaRepository <Revision,Long> {
-
+public interface CategoriaDao extends JpaRepository <Categoria,Long> {
+    
 }
