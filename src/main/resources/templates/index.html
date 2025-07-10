@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head th:replace="~{layout/plantilla :: head}">
+    <title>Muebles Rubio - Inicio</title>
+</head>
+<body>
+    <header th:replace="~{layout/plantilla :: header}"></header>
+    <nav th:replace="~{layout/plantilla :: navbar}"></nav>
+
+    <div class="main-container">
+        <aside th:replace="~{layout/plantilla :: aside}"></aside>
+
+        <main class="col-md-10 p-5 bg-light">
+            <h2 class="text-center mb-4">Nuestra historia</h2>
+            <p><strong>Muebles Rubio</strong> nació del esfuerzo y la pasión de una familia dedicada al trabajo en madera. Comenzamos hace más de 10 años en un pequeño taller, con herramientas sencillas, madera de calidad y un sueño: crear muebles que acompañen a las familias por generaciones.</p>
+            <p>Con el paso del tiempo, fuimos creciendo gracias a la recomendación de nuestros clientes y al compromiso de ofrecer siempre lo mejor. Cada mueble que fabricamos cuenta una historia de dedicación, detalle y amor por lo que hacemos.</p>
+            <p><strong>Hoy, Muebles Rubio</strong> combina tradición con innovación. Seguimos creando muebles a medida, con un estilo único y adaptado a los gustos de cada persona. Nos sentimos orgullosos de seguir construyendo espacios donde nacen recuerdos, se comparten momentos y se vive en familia.</p>
+        </main>
+    </div>
+
+    <footer th:replace="~{layout/plantilla :: footer}"></footer>
+</body>
+</html>
