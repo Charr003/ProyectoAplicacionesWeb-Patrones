@@ -2,26 +2,36 @@
 
 package com.prueba_1.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
 @Controller
 public class controller {
+
     @GetMapping("/")
-public String home() {
-        return "redirect:/login";
+    public String home() {
+        return "index";
     }
 
     @GetMapping("/login")
-    public String login() {
+    public String loginPage() {
         return "login";
     }
 
-    @GetMapping("/rol")
-    public String redirectByRole(Authentication auth) {
-        if (auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"))) {
+    @PostMapping("/login")
+    public String loginProcess(@RequestParam String username,
+                               @RequestParam String password,
+                               Model model) {
+        // Validación simple (solo para pruebas)
+        if ("admin".equals(username) && "admin123".equals(password)) {
             return "redirect:/admin";
-        } else if (auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ROLE_USER"))) {
+        } else if ("usuario".equals(username) && "user123".equals(password)) {
             return "redirect:/user";
+        } else {
+            model.addAttribute("error", true);
+            return "login";
         }
-        return "redirect:/login?error";
     }
 
     @GetMapping("/admin")
@@ -34,4 +44,3 @@ public String home() {
         return "user";
     }
 }
-
