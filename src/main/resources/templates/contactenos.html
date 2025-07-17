@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head th:replace="~{layout/plantilla :: head}">
+    <title>Contáctenos</title>
+</head>
+<body>
+<header th:replace="~{layout/plantilla :: header}"></header>
+
+<main class="container">
+    <h2>Contáctenos</h2>
+
+    <form th:action="@{/contactenos}" th:object="${contacto}" method="post">
+        <div>
+            <label>Nombre:</label>
+            <input type="text" th:field="*{nombre}" required class="form-control"/>
+            <p th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" style="color:red"></p>
+        </div>
+        <div>
+            <label>Correo:</label>
+            <input type="email" th:field="*{correo}" required class="form-control"/>
+            <p th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}" style="color:red"></p>
+        </div>
+        <div>
+            <label>Mensaje:</label>
+            <textarea th:field="*{mensaje}" required class="form-control"></textarea>
+            <p th:if="${#fields.hasErrors('mensaje')}" th:errors="*{mensaje}" style="color:red"></p>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Enviar</button>
+    </form>
+
+    <div th:if="${mensajeExito}" style="color:green; margin-top:15px;">
+        <p th:text="${mensajeExito}"></p>
+    </div>
+</main>
+
+<footer th:replace="~{layout/plantilla :: footer}"></footer>
+</body>
+</html>
