@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head th:replace="~{layout/plantilla :: head}">
+    <title>Registro - Muebles Rubio</title>
+</head>
+<body>
+<header th:replace="~{layout/plantilla :: header}"></header>
+<nav th:replace="~{layout/plantilla :: navbar}"></nav>
+
+<div class="main-container">
+    <aside th:replace="~{layout/plantilla :: aside}"></aside>
+
+    <main class="col-md-10 p-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Registro de Usuario</h2>
+
+            <form th:action="@{/registro}" method="post" th:object="${usuario}" class="mx-auto" style="max-width: 500px;">
+                <div class="mb-3">
+                    <label for="nombreCompleto" class="form-label">Nombre Completo</label>
+                    <input type="text" class="form-control" id="nombreCompleto" th:field="*{nombreCompleto}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" th:field="*{email}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="telefono" class="form-label">Teléfono</label>
+                    <input type="text" class="form-control" id="telefono" th:field="*{telefono}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="username" class="form-label">Nombre de Usuario</label>
+                    <input type="text" class="form-control" id="username" th:field="*{username}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" th:field="*{password}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="confirmar" class="form-label">Confirmar Contraseña</label>
+                    <input type="password" class="form-control" id="confirmar" name="confirmar" required>
+                </div>
+
+                <div th:if="${error}" class="alert alert-danger" role="alert" th:text="${error}"></div>
+                <div th:if="${mensaje}" class="alert alert-success" role="alert" th:text="${mensaje}"></div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success">Registrarse</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+
+<footer th:replace="~{layout/plantilla :: footer}"></footer>
+</body>
+</html>
