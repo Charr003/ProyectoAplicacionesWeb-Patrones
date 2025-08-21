@@ -7,6 +7,20 @@
     <body>
          <header th:replace="~{layout/plantilla :: header}"/>
          
+         <nav th:fragment="navbar" class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid justify-content-center">
+            <ul class="navbar-nav">
+
+                <li class="nav-item"><a class="nav-link" th:href="@{/pruebas/listado2}">Busqueda con Filtros</a></li>
+
+                <li class="nav-item">
+    
+</li>
+
+            </ul>
+        </div>
+    </nav>
+         
          <section th:replace="~{pruebas/fragmentos :: categoriasTabs}"/>
          <section th:replace="~{pruebas/fragmentos :: listadoProductos}"/>
     

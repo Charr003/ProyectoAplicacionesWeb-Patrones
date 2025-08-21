@@ -2,10 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns="http://www.w3.org/199/xhtml">
     <head th:replace="~{layout/plantilla :: head}">
-        <title>TechShop</title>
+        <title>Muebles Rubio</title>
     </head>
     <body>
          <header th:replace="~{layout/plantilla :: header}"/>
+         
+        <nav th:fragment="navbar" class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid justify-content-center">
+            <ul class="navbar-nav">
+
+                <li class="nav-item"><a class="nav-link" th:href="@{/pruebas/listado}">Busqueda por Categoria</a></li>
+
+                <li class="nav-item">
+    
+</li>
+
+            </ul>
+        </div>
+    </nav>
          
          <section th:replace="~{pruebas/fragmentos :: filtros}"/>
          <section th:replace="~{pruebas/fragmentos :: listadoProductos}"/>
